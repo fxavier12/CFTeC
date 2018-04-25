@@ -18,12 +18,19 @@ CREATE TABLE public.message(
 
 
 -- Responsavel Sirnande dos Santos Lima
-CREATE  TABLE  public .project (
+CREATE  TABLE  public.project (
 )
 
 
--- Responsavel Danilo Missao Morita
-CREATE TABLE public.Host (
+-- Danilo Morita Host (código)
+create table Host (
     codigo integer NOT NULL,
     Constraint cod_pkey PRIMARY KEY (codigo)
+)
+
+--Responsavel: Francisco Xavier
+CREATE TABLE public.state(
+    codigo integer NOT NULL,
+    nome character varying(255),
+    CONSTRAINT state_pkey PRIMARY KEY (codigo)
 )
