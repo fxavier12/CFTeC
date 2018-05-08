@@ -89,7 +89,7 @@ CONSTRAINT adress_pkey PRIMARY KEY (codigo)
 CREATE TABLE public.postalcode
 (
 codigo INTEGER NOT NULL,
-nome CHAR(100),
+nome CHARACTER VARYING(100),
 CONSTRAINT postalcode_pkey PRIMARY KEY (codigo)
 );
 
