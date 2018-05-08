@@ -101,3 +101,10 @@ nome varchar(45),
 descrição varchar(120),
 CONSTRAINT purpose_pkey PRIMARY KEY (codigo)
 );
+
+CREATE TABLE public.transmissao
+(
+    codigo integer NOT NULL,
+    dt_hora date NOT NULL,
+    CONSTRAINT transmissao_pkey PRIMARY KEY (codigo)
+);
