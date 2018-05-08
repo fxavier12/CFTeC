@@ -31,7 +31,7 @@ CREATE TABLE public.message(
 create table public.host (
     codigo integer NOT NULL,
 	--faltou chaves estrangeiras, nome da chave primaria com o nome do campo.
-    Constraint codigo_pkey PRIMARY KEY (codigo)
+    Constraint host_pkey PRIMARY KEY (codigo)
 );
 
 
