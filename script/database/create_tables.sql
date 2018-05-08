@@ -81,7 +81,7 @@ CREATE TABLE public.type
 CREATE TABLE public.adress
 (
 codigo INTEGER NOT NULL,
-logradouro TEXT,
+logradouro CHARACTER VARYING(255),
 CONSTRAINT adress_pkey PRIMARY KEY (codigo)
 );
 
