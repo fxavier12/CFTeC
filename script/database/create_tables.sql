@@ -56,7 +56,7 @@ CREATE TABLE public.state
 -- Responsavel Lucas Concato
 CREATE TABLE public.city 
 (
-	codigo integer not null;
+	codigo integer not null,
 	nome character varying(255),
 	constraint codigo_pkey primary key (codigo)
 );
