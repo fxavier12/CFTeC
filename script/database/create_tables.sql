@@ -28,9 +28,9 @@ CREATE TABLE public.message(
 
 
 -- Responsavel Danilo Missao Morita
-create table public.host (
+create table public.host 
+(
     codigo integer NOT NULL,
-	--faltou chaves estrangeiras, nome da chave primaria com o nome do campo.
     Constraint host_pkey PRIMARY KEY (codigo)
 );
 
