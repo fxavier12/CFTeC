@@ -30,6 +30,7 @@ CREATE TABLE public.message(
 -- Responsavel Danilo Missao Morita
 create table public.host (
     codigo integer NOT NULL,
+	--faltou chaves estrangeiras, nome da chave primaria com o nome do campo.
     Constraint codigo_pkey PRIMARY KEY (codigo)
 );
 
@@ -39,8 +40,9 @@ create table public.host (
 CREATE TABLE public.content
 (
     codigo integer not null,
-    tipo_mensagem text,
-    conteudo text,
+    tipo_mensagem text, -- campo estranho
+    conteudo text, -- pode migrar para byte ou verificar no postgres
+	--faltou chave estrangeira para Message
     constraint content_pkey primary key (codigo)
 );
 
@@ -57,7 +59,8 @@ CREATE TABLE public.state
 CREATE TABLE public.city 
 (
 	codigo integer not null,
-	nome character varying(255),
+	nome character varying(255), --padronizar tipo do campo
+	--faltou chave estrangeira
 	constraint city_pkey primary key (codigo)
 );
 
@@ -66,6 +69,7 @@ CREATE TABLE public.arctifact
 (
 	codigo integer not null,
 	artefato character varying(200),
+	--faltou chave estrangeira para message.
 	constraint artifact_pkey primary key (codigo)
 );
 
@@ -73,7 +77,7 @@ CREATE TABLE public.arctifact
 CREATE TABLE public.type
 (
     codigo integer NOT NULL,
-    nome character varying(150),
+    descricao character varying(150), --ajuste de nome(ok)
     CONSTRAINT type_pkey PRIMARY KEY (codigo)
 );
 
@@ -81,7 +85,10 @@ CREATE TABLE public.type
 CREATE TABLE public.adress
 (
 codigo INTEGER NOT NULL,
-logradouro CHARACTER VARYING(255),
+logradouro CHARACTER VARYING(255), --padronizar tamanho (ok)
+	--chave estrangeira para collaborator
+	--chave para postalcode
+	--incluir campos: numero, referencia, descricao
 CONSTRAINT adress_pkey PRIMARY KEY (codigo)
 );
 
@@ -89,11 +96,12 @@ CONSTRAINT adress_pkey PRIMARY KEY (codigo)
 CREATE TABLE public.postalcode
 (
 codigo INTEGER NOT NULL,
-nome CHARACTER VARYING(100),
+nome CHARACTER VARYING(100), --mudar nome para codigo_postal
+	--chave para type, city
 CONSTRAINT postalcode_pkey PRIMARY KEY (codigo)
 );
 
---Responsavel? Francisco Xavier
+--Responsavel: Francisco Xavier
 CREATE TABLE public.purpose
 (
 codigo INTEGER NOT NULL,
@@ -102,7 +110,7 @@ descrição varchar(120),
 CONSTRAINT purpose_pkey PRIMARY KEY (codigo)
 );
 
---Responsavel? Felipe Sampaio
+--Responsavel: Felipe Sampaio
 CREATE TABLE public.transmissao
 (
     codigo integer NOT NULL,
@@ -116,7 +124,7 @@ CREATE TABLE public.collaborator
 	codigo INTEGER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
 	data_nascimento DATE NOT NULL,
-	codigo_host INTEGER REFERENCES public.host (codigo),
-	codigo_adress INTEGER REFERENCES public.adress (codigo),
+	codigo_host INTEGER REFERENCES public.host (codigo), --verificar relacao
+	codigo_adress INTEGER REFERENCES public.adress (codigo), --verificar relacao
 	CONSTRAINT collaborator_pk PRIMARY KEY (codigo)
 );
