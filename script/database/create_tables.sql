@@ -102,6 +102,14 @@ descrição varchar(120),
 CONSTRAINT purpose_pkey PRIMARY KEY (codigo)
 );
 
+--Responsavel? Felipe Sampaio
+CREATE TABLE public.transmissao
+(
+    codigo integer NOT NULL,
+    dt_hora date NOT NULL,
+    CONSTRAINT transmissao_pkey PRIMARY KEY (codigo)
+);
+
 -- Responsavel: Glauco Yoshikazu Sazaka
 CREATE TABLE public.collaborator
 (
