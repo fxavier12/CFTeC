@@ -58,7 +58,7 @@ CREATE TABLE public.city
 (
 	codigo integer not null,
 	nome character varying(255),
-	constraint codigo_pkey primary key (codigo)
+	constraint city_pkey primary key (codigo)
 );
 
 -- Responsavel Alex Jussiani
