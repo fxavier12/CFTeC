@@ -40,10 +40,15 @@ public abstract class AbstractCrud<T> {
         }
     }
 
-    public void remove(T entity) {
-        getEntityManager().getTransaction().begin();
-        getEntityManager().remove(getEntityManager().merge(entity));
-        getEntityManager().getTransaction().commit();
+    public Exception remove(T entity) {
+        try {
+            getEntityManager().getTransaction().begin();
+            getEntityManager().remove(getEntityManager().merge(entity));
+            getEntityManager().getTransaction().commit();
+            return null;
+        } catch (Exception e) {
+            return e;
+        }
     }
 
     public T find(Object id) {

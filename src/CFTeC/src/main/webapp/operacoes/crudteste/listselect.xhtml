@@ -6,28 +6,32 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="../layout_operacoes.xhtml">
-
         <ui:define name="content">
             <h1>Consultar testes</h1>
             <h:form>
-                <h:inputText value="#{jsfTeste.nome}"  /> 
-                <p:commandButton value="buscar" ajax="false"/>       
-                <h:dataTable value="#{jsfTeste.select}" var="tes">
+                <p:inputText value="#{jsfTesteView.nome}"  /> 
+                <p:commandButton value="buscar" ajax="false" />   
+              
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate />
+                </p:messages>
+                
+                <h:dataTable value="#{jsfTesteView.select}" var="stes" >
                     <h:column>
-                        <h:outputText value="#{tes.codigo}" />
+                        <h:outputText value="#{stes.codigo}" />
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{tes.nome}" />
+                        <h:outputText value="#{stes.nome}" />
+                    </h:column>                    
+                    <h:column>
+                        <p:commandButton value="remover" action="#{jsfTeste.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(tes)}" onclick="return confirm('Confirma exclusao?');" /> 
+                        <p:commandButton value="editar" action="#{jsfTeste.update(stes)}" ajax="false" /> 
                     </h:column>
-                    <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}"/> 
-                    </h:column>
+                  
                 </h:dataTable>
             </h:form>
-
         </ui:define>
     </ui:composition>
 </html>

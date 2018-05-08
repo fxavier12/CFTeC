@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 /**
  *
@@ -48,13 +49,13 @@ public class JsfTeste {
         tes = new br.data.entity.Teste();
         tes.setCodigo(codigo);
         tes.setNome(nome);
-        Exception insert =  new br.data.crud.CrudTeste().persist(tes);
-        if (insert==null){
+        Exception insert = new br.data.crud.CrudTeste().persist(tes);
+        if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
-      
+
         } else {
             String msg = insert.getMessage();
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
@@ -69,11 +70,24 @@ public class JsfTeste {
     }
 
     public java.util.List<br.data.entity.Teste> getSelect() {
-        return new br.data.crud.CrudTeste().SelectByNome(nome);
+        if (this.nome != null && !this.nome.equals("")) {
+            return new br.data.crud.CrudTeste().SelectByNome(nome);
+        } else {
+            return null;
+        }
     }
 
     public void remove(br.data.entity.Teste teste) {
-        new br.data.crud.CrudTeste().remove(teste);
+        Exception e =new br.data.crud.CrudTeste().remove(teste);
+         if (e == null) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        } else {
+            String msg = e.getMessage();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
 
     public String update(br.data.entity.Teste teste) {
@@ -86,18 +100,22 @@ public class JsfTeste {
         br.data.entity.Teste tes;
         tes = new br.data.crud.CrudTeste().find(this.codigo);
         tes.setNome(nome);
-        Exception e =  new br.data.crud.CrudTeste().merge(tes);
-        if (e==null){
+        Exception e = new br.data.crud.CrudTeste().merge(tes);
+        if (e == null) {
             this.setCodigo(0);
             this.setNome("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro alterado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
-      
+
         } else {
             String msg = e.getMessage();
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
         return "blank.xhtml";
+    }
+    
+    public void buttonAction(ActionEvent actionEvent) {
+        System.out.println("ola mundo ======================");
     }
 }
