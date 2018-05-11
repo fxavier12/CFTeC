@@ -59,9 +59,10 @@ CREATE TABLE public.state
 CREATE TABLE public.city 
 (
 	codigo integer not null,
-	nome character varying(255), --padronizar tipo do campo
+	nome varchar(255), --padronizar tipo do campo
 	--faltou chave estrangeira
 	constraint city_pkey primary key (codigo)
+	constraint state_fkey foreign key (codigo) references public.state(codigo)
 );
 
 -- Responsavel Alex Jussiani
