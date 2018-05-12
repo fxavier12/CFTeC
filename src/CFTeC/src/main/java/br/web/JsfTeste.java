@@ -62,7 +62,8 @@ public class JsfTeste {
             FacesContext.getCurrentInstance().addMessage(null, message);
             return null;
         }
-        return "blank.xhtml";
+        
+        return "/operacoes/index.xhtml";
     }
 
     public java.util.List<br.data.entity.Teste> getAll() {
@@ -112,7 +113,7 @@ public class JsfTeste {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
-        return "blank.xhtml";
+        return "/operacoes/index.xhtml";
     }
     
     public void buttonAction(ActionEvent actionEvent) {
