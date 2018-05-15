@@ -3,7 +3,7 @@ services:
 before_script:
  - psql -c 'create database cfdb;' -U postgres
  - psql -U postgres -d cfdb -f script/database/create_tables.sql                 
-# - psql -U postgres -d demoiselledb -f scripts/database/db_inserts_script.sql
+ - psql -U postgres -d cfdb -f script/database/insert_records.sql
  - cd src/CFTeC/
 
  - ls
