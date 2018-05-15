@@ -128,4 +128,6 @@ CREATE TABLE public.collaborator
 	codigo_host INTEGER REFERENCES public.host (codigo), --verificar relacao
 	codigo_adress INTEGER REFERENCES public.adress (codigo), --verificar relacao
 	CONSTRAINT collaborator_pk PRIMARY KEY (codigo)
+	-- colocar campo ativo (bool), verifica se o colaborador está ativo ou nao
+	--c olocar campo email principal;
 );
