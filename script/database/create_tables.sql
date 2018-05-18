@@ -60,10 +60,10 @@ CREATE TABLE public.city
 (
 	codigo integer not null,
 	nome varchar(255), --padronizar tipo do campo
-	--faltou chave estrangeira
-	constraint city_pkey primary key (codigo)
-	
-);
+	codigo_state integer not null,
+	constraint city_pkey primary key (codigo),   	
+    FOREIGN KEY (codigo_state) REFERENCES public.state (codigo)
+  );
 
 -- Responsavel Alex Jussiani
 CREATE TABLE public.arctifact  
