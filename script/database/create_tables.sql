@@ -111,6 +111,17 @@ descrição varchar(120),
 CONSTRAINT purpose_pkey PRIMARY KEY (codigo)
 );
 
+--Responsavel: Tiago Pagotto
+CREATE TABLE public.communit
+(
+	codigo INTEGER NOT NULL,
+	codigo_purpose INTEGER NOT NULL,
+	codigo_communit INTEGER NOT NULL,
+	CONSTRAINT communit_pkey PRIMARY KEY (codigo),
+	FOREIGN KEY (codigo_purpose) REFERENCES public.purpose (codigo),
+	FOREIGN KEY (codigo_communit) REFERENCES public.communit (codigo)
+);
+
 --Responsavel: Felipe Sampaio
 CREATE TABLE public.transmissao
 (
