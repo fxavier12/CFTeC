@@ -1,4 +1,4 @@
--- script para criacao de tabelas no banco de dados
+﻿-- script para criacao de tabelas no banco de dados
 --
 --antes de cada tabela o nome do responsavel deve ser informado
 
@@ -73,6 +73,21 @@ CREATE TABLE public.arctifact
 	--faltou chave estrangeira para message.
 	constraint artifact_pkey primary key (codigo)
 );
+
+-- Responsavel Alex Jussiani
+CREATE TABLE public.arctifact  
+(
+	codigo integer not null,
+	nome varchar(45) not null,
+        descrição varchar(120),
+        versao varchar(10) not null default '0.1',
+        arquivo bytea not null,
+        message_codigo integer not null,
+	--faltou chave estrangeira para message.
+	constraint artifact_pkey primary key (codigo),
+	foreign key (message_codigo) references public.message (codigo)
+);
+
 
 --Responsavel: Gabriel Tobias
 CREATE TABLE public.type
