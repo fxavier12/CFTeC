@@ -69,15 +69,6 @@ CREATE TABLE public.city
 CREATE TABLE public.arctifact  
 (
 	codigo integer not null,
-	artefato character varying(200),
-	--faltou chave estrangeira para message.
-	constraint artifact_pkey primary key (codigo)
-);
-
--- Responsavel Alex Jussiani
-CREATE TABLE public.arctifact  
-(
-	codigo integer not null,
 	nome varchar(45) not null,
         descrição varchar(120),
         versao varchar(10) not null default '0.1',
