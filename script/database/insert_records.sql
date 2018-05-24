@@ -15,4 +15,9 @@ insert into purpose values (2, 'social', 'mensagem de cunho social');
 insert into purpose values (3, 'consulta', 'mensagem para consultar algo');
 insert into purpose values (4, 'ruido', 'mensagem emitida de forma automatica');
 insert into purpose values (5, 'ajuste', 'mensagem para ajustar algo');
---falta inserts da tabela commUnit
+
+insert into communit values (1, 1);
+insert into communit values (2, 2, 2);
+insert into communit values (3, 3, 1);
+insert into communit values (4, 3, 4);
+insert into communit values (5, 5, 5);
