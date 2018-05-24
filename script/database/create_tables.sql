@@ -121,8 +121,8 @@ CONSTRAINT purpose_pkey PRIMARY KEY (codigo)
 CREATE TABLE public.communit
 (
 	codigo INTEGER NOT NULL,
-	codigo_purpose INTEGER NOT NULL,
-	codigo_communit INTEGER NOT NULL,
+	codigo_purpose INTEGER,
+	codigo_communit INTEGER,
 	CONSTRAINT communit_pkey PRIMARY KEY (codigo),
 	FOREIGN KEY (codigo_purpose) REFERENCES public.purpose (codigo),
 	FOREIGN KEY (codigo_communit) REFERENCES public.communit (codigo)
