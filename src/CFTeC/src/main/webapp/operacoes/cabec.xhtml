@@ -31,11 +31,33 @@
                             <p:menuitem value="Inserir registro" icon="ui-icon-newwin" url="/faces/operacoes/crudteste/add.xhtml" />
                         </p:submenu>
                         <p:separator />
-                        <p:menuitem value="Adicione aqui seu elemento" url="#" />
+                        <p:submenu label="Endereçamento" icon="ui-icon-contact" rendered="true">
+                            <p:submenu label="CEP" icon="ui-icon-contact" rendered="true">
+                                <p:menuitem value="Buscar" icon="ui-icon-search" url="/faces/operacoes/crudteste/listselect.xhtml"/>
+                                <p:menuitem value="Inserir"  icon="ui-icon-document-b"   url="/faces/operacoes/crudteste/listall.xhtml" />
+                                <p:menuitem value="Atualizar" icon="ui-icon-newwin" url="/faces/operacoes/crudteste/add.xhtml" />
+                            </p:submenu>
+                            <p:submenu label="Tipo" icon="ui-icon-contact" rendered="true">
+                                <p:menuitem value="Buscar" icon="ui-icon-search" url="/faces/operacoes/crudteste/listselect.xhtml"/>
+                                <p:menuitem value="Inserir"  icon="ui-icon-document-b"   url="/faces/operacoes/crudteste/listall.xhtml" />
+                                <p:menuitem value="Atualizar" icon="ui-icon-newwin" url="/faces/operacoes/crudteste/add.xhtml" />
+                            </p:submenu>                            
+                            <p:submenu label="Cidade" icon="ui-icon-contact" rendered="true">
+                                <p:menuitem value="Buscar" icon="ui-icon-search" url="/faces/operacoes/crudteste/listselect.xhtml"/>
+                                <p:menuitem value="Inserir"  icon="ui-icon-document-b"   url="/faces/operacoes/crudteste/listall.xhtml" />
+                                <p:menuitem value="Atualizar" icon="ui-icon-newwin" url="/faces/operacoes/crudteste/add.xhtml" />
+                            </p:submenu>     
+                            <p:submenu label="Estado    " icon="ui-icon-contact" rendered="true">
+                                <p:menuitem value="Buscar" icon="ui-icon-search" url="/faces/operacoes/crudteste/listselect.xhtml"/>
+                                <p:menuitem value="Inserir"  icon="ui-icon-document-b"   url="/faces/operacoes/crudteste/listall.xhtml" />
+                                <p:menuitem value="Atualizar" icon="ui-icon-newwin" url="/faces/operacoes/crudteste/add.xhtml" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:separator />
                         <p:menuitem value="Open" url="#" />
                         <p:menuitem value="Quit" url="#" />
                     </p:submenu>
-                    
+
                     <f:facet name="options">
                         <p:inputText style="margin-right:10px" placeholder="Search"/>
                         <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" onclick="javascript:alert('procedimento de logout');"/>                  
