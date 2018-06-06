@@ -103,9 +103,11 @@ CONSTRAINT adress_pkey PRIMARY KEY (codigo)
 CREATE TABLE public.postalcode
 (
 codigo INTEGER NOT NULL,
-nome CHARACTER VARYING(100), --mudar nome para codigo_postal
+codigo_postal CHARACTER VARYING(100), --mudar nome para codigo_postal (ok)
 	--chave para type, city
 CONSTRAINT postalcode_pkey PRIMARY KEY (codigo)
+FOREIGN KEY (codigo_city) REFERENCES public.city (codigo)
+FOREIGN KEY (codigo_type) REFERENCES public.type (codigo)
 );
 
 --Responsavel: Francisco Xavier
