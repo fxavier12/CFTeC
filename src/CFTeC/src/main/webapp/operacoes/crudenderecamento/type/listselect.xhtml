@@ -5,29 +5,30 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="../layout_operacoes.xhtml">
+    <ui:composition template="../../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Consultar CEP</h1>
+            <h1>Consultar TIPO</h1>
+            <p>Consulta deve ser realizado pela descrição do tipo!</p>
             <h:form>
-                <p:inputText value="#{jsfTesteView.nome}"  /> 
+                <p:inputText value="#{jsfType.descricao}"  /> 
                 <p:commandButton value="buscar" ajax="false" />   
               
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
                 
-                <h:dataTable value="#{jsfTesteView.select}" var="stes" >
+                <h:dataTable value="#{jsfType.select}" var="stes" >
                     <h:column>
                         <h:outputText value="#{stes.codigo}" />
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{stes.nome}" />
+                        <h:outputText value="#{stes.descricao}" />
                     </h:column>                    
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
+                        <p:commandButton value="remover" action="#{jsfType.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(stes)}" ajax="false" /> 
+                        <p:commandButton value="editar" action="#{jsfType.update(stes)}" ajax="false" /> 
                     </h:column>
                   
                 </h:dataTable>
