@@ -103,9 +103,11 @@ CONSTRAINT adress_pkey PRIMARY KEY (codigo)
 CREATE TABLE public.postalcode
 (
 codigo INTEGER NOT NULL,
-codigo_postal CHARACTER VARYING(100), --mudar nome para codigo_postal (ok)
-CONSTRAINT postalcode_pkey PRIMARY KEY (codigo)
-FOREIGN KEY (codigo_city) REFERENCES public.city (codigo)
+codigo_postal CHARACTER VARYING(100),
+codigo_city integer not null,
+codigo_type integer not null,
+CONSTRAINT postalcode_pkey PRIMARY KEY (codigo),
+FOREIGN KEY (codigo_city) REFERENCES public.city (codigo),
 FOREIGN KEY (codigo_type) REFERENCES public.type (codigo)
 );
 
