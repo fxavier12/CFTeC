@@ -5,26 +5,26 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="../layout_operacoes.xhtml">
+    <ui:composition template="../../layout_operacoes.xhtml">
 
         <ui:define name="content">
-            <h1>Listar todos os testes</h1>
+            <h1>Listar todos os tipos</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-                <h:dataTable value="#{jsfTeste.all}" var="tes">
+                <h:dataTable value="#{jsfType.all}" var="tes">
                     <h:column>
                         <h:outputText value="#{tes.codigo}" />
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{tes.nome}" />
+                        <h:outputText value="#{tes.descricao}" />
                     </h:column>
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
+                        <p:commandButton value="remover" action="#{jsfType.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}"/> 
+                        <p:commandButton value="editar" action="#{jsfType.update(tes)}"/> 
                     </h:column>
                 </h:dataTable>
             </h:form>
