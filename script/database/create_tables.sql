@@ -59,7 +59,7 @@ CREATE TABLE public.state
 CREATE TABLE public.city 
 (
 	codigo integer not null,
-	nome varchar(255), --padronizar tipo do campo
+	nome varchar(255),
 	codigo_state integer not null,
 	constraint city_pkey primary key (codigo),   	
     FOREIGN KEY (codigo_state) REFERENCES public.state (codigo)
