@@ -52,7 +52,7 @@ CREATE TABLE public.estado
 (
     codigo integer NOT NULL,
     nome varchar(255),
-    CONSTRAINT state_pkey PRIMARY KEY (codigo)
+    CONSTRAINT estado_pkey PRIMARY KEY (codigo)
 );
 
 -- Responsavel Lucas Concato
