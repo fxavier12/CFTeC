@@ -23,11 +23,11 @@ insert into communit values (4, 3, 4);
 insert into communit values (5, 5, 5);
 
 -- Responsavel: Gabriel Tobias 
-insert into state values (1, 'Parana');
-insert into state values (2, 'Rio Grande do Sul');
-insert into state values (3, 'Amazonas');
-insert into state values (4, 'Minas Gerais');
-insert into state values (5, 'Sao Paulo');
+insert into estado values (1, 'Parana');
+insert into estado values (2, 'Rio Grande do Sul');
+insert into estado values (3, 'Amazonas');
+insert into estado values (4, 'Minas Gerais');
+insert into estado values (5, 'Sao Paulo');
 
 insert into city values (1, 'Cornelio Procopio', 1);
 insert into city values (2, 'Porto Alegre', 2);
