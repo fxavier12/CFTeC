@@ -10,6 +10,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -22,13 +24,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author gabri
  */
 @Entity
-@Table(name = "estado")
+@Table(name = "city")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Estado.findAll", query = "SELECT t FROM Estado t")
-    , @NamedQuery(name = "Estado.findByCodigo", query = "SELECT t FROM Estado t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Estado.findByNome", query = "SELECT t FROM Estado t WHERE upper(t.nome) like :nome")})
-public class Estado implements Serializable {
+    @NamedQuery(name = "City.findAll", query = "SELECT t FROM City t")
+    , @NamedQuery(name = "City.findByCodigo", query = "SELECT t FROM City t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "City.findByNome", query = "SELECT t FROM City t WHERE upper(t.nome) like :nome")})
+public class City implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,11 +41,14 @@ public class Estado implements Serializable {
     @Size(max = 255)
     @Column(name = "nome")
     private String nome;
+    @JoinColumn(name = "codigo_estado", referencedColumnName = "codigo")
+    @ManyToOne(optional = false)
+    private Estado codigo_estado;
 
-    public Estado() {
+    public City() {
     }
 
-    public Estado(Integer codigo) {
+    public City(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -63,6 +68,14 @@ public class Estado implements Serializable {
         this.nome = nome;
     }
 
+    public void setCodigo_estado(Estado codigo_estado) {
+        this.codigo_estado = codigo_estado;
+    }
+
+    public Estado getCodigo_estado() {
+        return codigo_estado;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -73,10 +86,10 @@ public class Estado implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Estado)) {
+        if (!(object instanceof City)) {
             return false;
         }
-        Estado other = (Estado) object;
+        City other = (City) object;
         if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
@@ -85,7 +98,7 @@ public class Estado implements Serializable {
 
     @Override
     public String toString() {
-        return nome;
+        return "br.data.entity.City[ codigo=" + codigo + " ]";
     }
-    
+
 }
