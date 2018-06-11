@@ -10,7 +10,7 @@ CREATE TABLE public.teste
     CONSTRAINT teste_pkey PRIMARY KEY (codigo)
 );
 -- As tabelas corretas devem ser criadas a partir daqui.
-
+/*
 -- Responsavel Sirnande dos Santos Lima
 CREATE  TABLE  public.project (
     codigo integer NOT NULL,
@@ -152,7 +152,7 @@ CREATE TABLE public.collaborator
 	--c olocar campo email principal;
 );
 
-
+*/
 
     
     CREATE  TABLE  public.project (
