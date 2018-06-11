@@ -84,7 +84,7 @@ public class Type implements Serializable {
 
     @Override
     public String toString() {
-        return "br.data.entity.Teste[ codigo=" + codigo + " ]";
+        return descricao;
     }
     
 }

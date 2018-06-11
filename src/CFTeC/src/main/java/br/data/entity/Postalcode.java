@@ -7,7 +7,6 @@ package br.data.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,13 +24,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author gabri
  */
 @Entity
-@Table(name = "city")
+@Table(name = "postalcode")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "City.findAll", query = "SELECT t FROM City t")
-    , @NamedQuery(name = "City.findByCodigo", query = "SELECT t FROM City t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "City.findByNome", query = "SELECT t FROM City t WHERE upper(t.nome) like :nome")})
-public class City implements Serializable {
+    @NamedQuery(name = "Postalcode.findAll", query = "SELECT t FROM Postalcode t")
+    , @NamedQuery(name = "Postalcode.findByCodigo", query = "SELECT t FROM Postalcode t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "Postalcode.findByCodigoPostal", query = "SELECT t FROM Postalcode t WHERE upper(t.codigo_postal) like :codigo_postal")})
+public class Postalcode implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,16 +39,19 @@ public class City implements Serializable {
     @Column(name = "codigo")
     private Integer codigo;
     @Size(max = 255)
-    @Column(name = "nome")
-    private String nome;
-    @JoinColumn(name = "codigo_estado", referencedColumnName = "codigo")
+    @Column(name = "codigo_postal")
+    private String codigo_postal;
+    @JoinColumn(name = "codigo_city", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
-    private Estado codigo_estado;
-
-    public City() {
+    private City codigo_city;
+    @JoinColumn(name = "codigo_type", referencedColumnName = "codigo")
+    @ManyToOne(optional = false)
+    private Type codigo_type;
+    
+    public Postalcode() {
     }
 
-    public City(Integer codigo) {
+    public Postalcode(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -61,21 +63,32 @@ public class City implements Serializable {
         this.codigo = codigo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCodigo_postal() {
+        return codigo_postal;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCodigo_postal(String codigo_postal) {
+        this.codigo_postal = codigo_postal;
     }
 
-    public void setCodigo_estado(Estado codigo_estado) {
-        this.codigo_estado = codigo_estado;
+    public City getCodigo_city() {
+        return codigo_city;
     }
 
-    public Estado getCodigo_estado() {
-        return codigo_estado;
+    public void setCodigo_city(City codigo_city) {
+        this.codigo_city = codigo_city;
     }
+
+    public Type getCodigo_type() {
+        return codigo_type;
+    }
+
+    public void setCodigo_type(Type codigo_type) {
+        this.codigo_type = codigo_type;
+    }
+    
+    
+    
 
     @Override
     public int hashCode() {
@@ -87,10 +100,10 @@ public class City implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof City)) {
+        if (!(object instanceof Teste)) {
             return false;
         }
-        City other = (City) object;
+        Postalcode other = (Postalcode) object;
         if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
@@ -99,7 +112,8 @@ public class City implements Serializable {
 
     @Override
     public String toString() {
-        return nome;
+        return "br.data.entity.Teste[ codigo=" + codigo + " ]";
     }
-
+    
 }
+

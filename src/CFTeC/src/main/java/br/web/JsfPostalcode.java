@@ -5,7 +5,8 @@
  */
 package br.web;
 
-import br.data.entity.Estado;
+import br.data.entity.City;
+import br.data.entity.Type;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -18,17 +19,18 @@ import javax.faces.event.ActionEvent;
  */
 @ManagedBean
 @RequestScoped
-public class JsfCity {
+public class JsfPostalcode {
 
     /**
      * Creates a new instance of JsfTeste
      */
-    public JsfCity() {
+    public JsfPostalcode() {
     }
 
     private int codigo;
-    private String nome;
-    private Estado codigo_estado = new Estado();
+    private String codigo_postal;
+    private City codigo_city = new City();
+    private Type codigo_type = new Type();
 
     public int getCodigo() {
         return codigo;
@@ -37,33 +39,41 @@ public class JsfCity {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-
-    public String getNome() {
-        return nome;
+    
+    public String getCodigo_postal() {
+        return codigo_postal;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCodigo_postal(String codigo_postal) {
+        this.codigo_postal = codigo_postal;
+    }
+    
+     public City getCodigo_city() {
+        return codigo_city;
     }
 
-    public Estado getCodigo_estado() {
-        return codigo_estado;
+    public void setCodigo_city(City codigo_city) {
+        this.codigo_city = codigo_city;
+    }
+    
+     public Type getCodigo_type() {
+        return codigo_type;
     }
 
-    public void setCodigo_estado(Estado codigo_estado) {
-        this.codigo_estado = codigo_estado;
+    public void setCodigo_type(Type codigo_type) {
+        this.codigo_type = codigo_type;
     }
+    
 
     public String persist() {
-        br.data.entity.City tes;
-        tes = new br.data.entity.City();
+        br.data.entity.Postalcode tes;
+        tes = new br.data.entity.Postalcode();
         tes.setCodigo(codigo);
-        tes.setNome(nome);
-        tes.setCodigo_estado(codigo_estado);
-        Exception insert = new br.data.crud.CrudCity().persist(tes);
+        tes.setCodigo_postal(codigo_postal);
+        Exception insert = new br.data.crud.CrudPostalcode().persist(tes);
         if (insert == null) {
             this.setCodigo(0);
-            this.setNome("");
+            this.setCodigo_postal("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
@@ -73,25 +83,25 @@ public class JsfCity {
             FacesContext.getCurrentInstance().addMessage(null, message);
             return null;
         }
-
+        
         return "/operacoes/index.xhtml";
     }
 
-    public java.util.List<br.data.entity.City> getAll() {
-        return new br.data.crud.CrudCity().getAll();
+    public java.util.List<br.data.entity.Postalcode> getAll() {
+        return new br.data.crud.CrudPostalcode().getAll();
     }
 
-    public java.util.List<br.data.entity.City> getSelect() {
-        if (this.nome != null && !this.nome.equals("")) {
-            return new br.data.crud.CrudCity().SelectByNome(nome);
+    public java.util.List<br.data.entity.Postalcode> getSelect() {
+        if (this.codigo_postal != null && !this.codigo_postal.equals("")) {
+            return new br.data.crud.CrudPostalcode().SelectByCodigoPostal(codigo_postal);
         } else {
             return null;
         }
     }
 
-    public void remove(br.data.entity.City teste) {
-        Exception e = new br.data.crud.CrudCity().remove(teste);
-        if (e == null) {
+    public void remove(br.data.entity.Postalcode teste) {
+        Exception e =new br.data.crud.CrudPostalcode().remove(teste);
+         if (e == null) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
@@ -102,21 +112,20 @@ public class JsfCity {
         }
     }
 
-    public String update(br.data.entity.City teste) {
+    public String update(br.data.entity.Postalcode teste) {
         this.codigo = teste.getCodigo();
-        this.nome = teste.getNome();
-        this.codigo_estado = teste.getCodigo_estado();
+        this.codigo_postal = teste.getCodigo_postal();
         return "merge.xhtml";
     }
 
     public String merge() {
-        br.data.entity.City tes;
-        tes = new br.data.crud.CrudCity().find(this.codigo);
-        tes.setNome(nome);
-        Exception e = new br.data.crud.CrudCity().merge(tes);
+        br.data.entity.Postalcode tes;
+        tes = new br.data.crud.CrudPostalcode().find(this.codigo);
+        tes.setCodigo_postal(codigo_postal);
+        Exception e = new br.data.crud.CrudPostalcode().merge(tes);
         if (e == null) {
             this.setCodigo(0);
-            this.setNome("");
+            this.setCodigo_postal(codigo_postal);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro alterado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
@@ -127,7 +136,7 @@ public class JsfCity {
         }
         return "/operacoes/index.xhtml";
     }
-
+    
     public void buttonAction(ActionEvent actionEvent) {
         System.out.println("ola mundo ======================");
     }

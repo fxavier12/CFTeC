@@ -7,27 +7,23 @@
 
     <ui:composition template="../../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Cadastrar cidade</h1>
+            <h1>Modificar cidade</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-
-
-
                 Codigo:
-                <p:inputText value="#{jsfCity.codigo}"  />
-
+                <p:outputLabel value="#{jsfCity.codigo}"  />
+                <h:inputHidden value="#{jsfCity.codigo}"  />
                 <br></br>
-                Nome:
+                Descrição:
                 <p:inputText value="#{jsfCity.nome}" />
-
-                <br></br>
+                
                 Estado:
                 <p:inputText value="#{jsfCity.codigo_estado}" />
-
                 <br></br>
-                <p:commandButton value="salvar novo registro" action="#{jsfCity.persist()}"  ajax="false"/> 
+
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfCity.merge()}" ajax="false" /> 
 
             </h:form>
         </ui:define>
