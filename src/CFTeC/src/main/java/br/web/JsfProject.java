@@ -54,11 +54,11 @@ public class JsfProject {
     }
 
     public String persist() {
-        br.data.entity.Teste tes;
-        tes = new br.data.entity.Teste();
+        br.data.entity.Project tes;
+        tes = new br.data.entity.Project();
         tes.setCodigo(codigo);
         tes.setNome(nome);
-        Exception insert = new br.data.crud.CrudTeste().persist(tes);
+        Exception insert = new br.data.crud.CrudProject().persist(tes);
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
@@ -75,20 +75,20 @@ public class JsfProject {
         return "/operacoes/index.xhtml";
     }
 
-    public java.util.List<br.data.entity.Teste> getAll() {
-        return new br.data.crud.CrudTeste().getAll();
+    public java.util.List<br.data.entity.Project> getAll() {
+        return new br.data.crud.CrudProject().getAll();
     }
 
-    public java.util.List<br.data.entity.Teste> getSelect() {
+    public java.util.List<br.data.entity.Project> getSelect() {
         if (this.nome != null && !this.nome.equals("")) {
-            return new br.data.crud.CrudTeste().SelectByNome(nome);
+            return new br.data.crud.CrudProject().SelectByNome(nome);
         } else {
             return null;
         }
     }
 
-    public void remove(br.data.entity.Teste teste) {
-        Exception e =new br.data.crud.CrudTeste().remove(teste);
+    public void remove(br.data.entity.Project project) {
+        Exception e =new br.data.crud.CrudProject().remove(project);
          if (e == null) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -100,9 +100,9 @@ public class JsfProject {
         }
     }
 
-    public String update(br.data.entity.Teste teste) {
-        this.codigo = teste.getCodigo();
-        this.nome = teste.getNome();
+    public String update(br.data.entity.Project project) {
+        this.codigo = project.getCodigo();
+        this.nome = project.getNome();
         return "merge.xhtml";
     }
 
