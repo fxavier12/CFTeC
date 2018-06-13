@@ -38,11 +38,11 @@ public class Purpose implements Serializable{
     @NotNull
     @Column(name = "codigo")
     private Integer codigo;
-    @Size(max = 255)
+    @Size(max = 45)
     @Column(name = "nome")
     private String nome;
-    @Size(max = 255)
-    @Column(name = "descrição")
+    @Size(max = 120)
+    @Column(name = "descricao")
     private String descricao;
 
     public Purpose() {

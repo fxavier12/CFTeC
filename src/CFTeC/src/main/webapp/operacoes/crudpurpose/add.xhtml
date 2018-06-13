@@ -16,14 +16,18 @@
 
 
                 Codigo:
-                <p:inputText value="#{jsfTeste.codigo}"  />
+                <p:inputText value="#{jsfPurpose.codigo}"  />
 
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfTeste.nome}" />
+                <p:inputText value="#{jsfPurpose.nome}" />
+                
+                <br></br>
+                Descrição:
+                <p:inputText value="#{jsfPurpose.descricao}" />
 
                 <br></br>
-                <p:commandButton value="Salvar Purpose" action="#{jsfTeste.persist()}"  ajax="false"/> 
+                <p:commandButton value="Salvar Purpose" action="#{jsfPurpose.persist()}"  ajax="false"/> 
 
             </h:form>
         </ui:define>
