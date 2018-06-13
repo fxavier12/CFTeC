@@ -203,7 +203,7 @@ CREATE TABLE public.transmissao
     CONSTRAINT transmissao_pkey PRIMARY KEY (codigo)
 );
 
-CREATE TABLE public.state
+CREATE TABLE public.estado
 (
     codigo integer NOT NULL,
     nome varchar(255),
@@ -215,9 +215,9 @@ CREATE TABLE public.city
 (
 	codigo integer not null,
 	nome varchar(255),
-	codigo_state integer not null,
+	codigo_estado integer not null,
 	constraint city_pkey primary key (codigo),   	
-    FOREIGN KEY (codigo_state) REFERENCES public.state (codigo)
+    FOREIGN KEY (codigo_estado) REFERENCES public.estado (codigo)
   );
 
 CREATE TABLE public.type
