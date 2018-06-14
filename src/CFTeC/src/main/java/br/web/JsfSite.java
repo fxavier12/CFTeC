@@ -20,18 +20,45 @@ import javax.faces.event.ActionEvent;
 public class JsfSite {
 
     /**
-     * Creates a new instance of JsfTeste
+     * Creates a new instance of JsfSite
      */
     public JsfSite() {
     }
 
     private int codigo;
+    private int codigoProject;   
     private String nome;
+    private String posicaoGeo;
+
+    public String getPosicaoGeo() {
+        return posicaoGeo;
+    }
+
+    public void setPosicaoGeo(String posicaoGeo) {
+        this.posicaoGeo = posicaoGeo;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+    private String observacao;
 
     public int getCodigo() {
         return codigo;
     }
+    
+     public int getCodigoProject() {
+        return codigoProject;
+    }
 
+    public void setCodigoProject(int codigoProject) {
+        this.codigoProject = codigoProject;
+    }
+    
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -45,11 +72,14 @@ public class JsfSite {
     }
 
     public String persist() {
-        br.data.entity.Teste tes;
-        tes = new br.data.entity.Teste();
-        tes.setCodigo(codigo);
-        tes.setNome(nome);
-        Exception insert = new br.data.crud.CrudTeste().persist(tes);
+        br.data.entity.Site site;
+        site = new br.data.entity.Site();
+        site.setCodigo(codigo);
+        site.setCodigoProject(codigoProject);
+        site.setNome(nome);
+        site.setPosicaoGeo(posicaoGeo);
+        site.setObservacao(observacao);
+        Exception insert = new br.data.crud.CrudSite().persist(site);
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
@@ -66,20 +96,20 @@ public class JsfSite {
         return "/operacoes/index.xhtml";
     }
 
-    public java.util.List<br.data.entity.Teste> getAll() {
-        return new br.data.crud.CrudTeste().getAll();
+    public java.util.List<br.data.entity.Site> getAll() {
+        return new br.data.crud.CrudSite().getAll();
     }
 
-    public java.util.List<br.data.entity.Teste> getSelect() {
+    public java.util.List<br.data.entity.Site> getSelect() {
         if (this.nome != null && !this.nome.equals("")) {
-            return new br.data.crud.CrudTeste().SelectByNome(nome);
+            return new br.data.crud.CrudSite().SelectByNome(nome);
         } else {
             return null;
         }
     }
 
-    public void remove(br.data.entity.Teste teste) {
-        Exception e =new br.data.crud.CrudTeste().remove(teste);
+    public void remove(br.data.entity.Site site) {
+        Exception e =new br.data.crud.CrudSite().remove(site);
          if (e == null) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -91,17 +121,20 @@ public class JsfSite {
         }
     }
 
-    public String update(br.data.entity.Teste teste) {
-        this.codigo = teste.getCodigo();
-        this.nome = teste.getNome();
+    public String update(br.data.entity.Site site) {
+        this.codigo = site.getCodigo();
+        this.codigoProject = site.getCodigoProject();
+        this.nome = site.getNome();
+        this.posicaoGeo = site.getPocisaoGeo();
+        this.observacao = site.getObservacao();
         return "merge.xhtml";
     }
 
     public String merge() {
-        br.data.entity.Teste tes;
-        tes = new br.data.crud.CrudTeste().find(this.codigo);
+        br.data.entity.Site tes;
+        tes = new br.data.crud.CrudSite().find(this.codigo);
         tes.setNome(nome);
-        Exception e = new br.data.crud.CrudTeste().merge(tes);
+        Exception e = new br.data.crud.CrudSite().merge(tes);
         if (e == null) {
             this.setCodigo(0);
             this.setNome("");

@@ -7,16 +7,16 @@
 
     <ui:composition template="../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Consultar testes</h1>
+            <h1>Consultar Projetos</h1>
             <h:form>
-                <p:inputText value="#{jsfTesteView.nome}"  /> 
+                <p:inputText value="#{jsfProjectView.nome}"  /> 
                 <p:commandButton value="buscar" ajax="false" />   
               
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
                 
-                <h:dataTable value="#{jsfTesteView.select}" var="stes" >
+                <h:dataTable value="#{jsfProjectView.select}" var="stes" >
                     <h:column>
                         <h:outputText value="#{stes.codigo}" />
                     </h:column>

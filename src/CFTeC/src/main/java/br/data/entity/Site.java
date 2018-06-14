@@ -22,12 +22,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author utfpr
  */
 @Entity
-@Table(name = "teste")
+@Table(name = "site")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Teste.findAll", query = "SELECT t FROM Teste t")
-    , @NamedQuery(name = "Teste.findByCodigo", query = "SELECT t FROM Teste t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Teste.findByNome", query = "SELECT t FROM Teste t WHERE upper(t.nome) like :nome")})
+    @NamedQuery(name = "Site.findAll", query = "SELECT t FROM Site t")
+    , @NamedQuery(name = "Site.findByCodigo", query = "SELECT t FROM Site t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "Site.findByNome", query = "SELECT t FROM Site t WHERE upper(t.nome) like :nome")})
 public class Site implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,14 +35,22 @@ public class Site implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "codigo")
-    private Integer codigo;
+    private Integer codigo;    
     @Size(max = 255)
     @Column(name = "nome")
     private String nome;
+    @Column(name = "pocisaoGeo")
+    private String pocisaoGeo;
+    @Column(name = "observacao")
+    private String observacao;
+    @Column(name = "codigoProject")
+    private Integer codigoProject;
 
+   
     public Site() {
     }
-
+    
+    
     public Site(Integer codigo) {
         this.codigo = codigo;
     }
@@ -61,6 +69,14 @@ public class Site implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public Integer getCodigoProject() {
+        return codigoProject;
+    }
+
+    public void setCodigoProject(Integer codigoProject) {
+        this.codigoProject = codigoProject;
     }
 
     @Override
@@ -85,7 +101,7 @@ public class Site implements Serializable {
 
     @Override
     public String toString() {
-        return "br.data.entity.Teste[ codigo=" + codigo + " ]";
+        return "br.data.entity.Site[ codigo=" + codigo + " ]";
     }
     
 }

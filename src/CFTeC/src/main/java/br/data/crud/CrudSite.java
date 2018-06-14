@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author alexandrelerario
+ * @author Diego Vilella Rodrigues
  */
 public class CrudSite extends AbstractCrud<br.data.entity.Site> {
 
@@ -23,10 +23,10 @@ public class CrudSite extends AbstractCrud<br.data.entity.Site> {
         super(br.data.entity.Site.class);
     }
 
-    public List<br.data.entity.Teste> SelectByNome(String nome) {
-        List<br.data.entity.Teste> lista;
+    public List<br.data.entity.Site> SelectByNome(String nome) {
+        List<br.data.entity.Site> lista;
         try {
-            lista= getEntityManager().createNamedQuery("Teste.findByNome").setParameter("nome", "%" + nome.toUpperCase() + "%").getResultList();
+            lista= getEntityManager().createNamedQuery("Site.findByNome").setParameter("nome", "%" + nome.toUpperCase() + "%").getResultList();
             return lista;
         } catch (Exception e) {
             System.out.println(e.getMessage());

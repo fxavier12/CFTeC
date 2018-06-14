@@ -7,21 +7,24 @@
 
     <ui:composition template="../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Modificar teste</h1>
+            <h1>Modificar Projeto</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
                 Codigo:
-                <p:outputLabel value="#{jsfTeste.codigo}"  />
-                <h:inputHidden value="#{jsfTeste.codigo}"  />
+                <p:outputLabel value="#{jsfProject.codigo}"  />
+                <h:inputHidden value="#{jsfProject.codigo}"  />
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfTeste.nome}" />
+                <p:inputText value="#{jsfProject.nome}" />
+                <br></br>
+                Descrição:
+                <p:inputText value="#{jsfProject.descricao}" />
 
                 <br></br>
 
-                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfTeste.merge()}" ajax="false" /> 
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfProject.merge()}" ajax="false" /> 
 
             </h:form>
         </ui:define>

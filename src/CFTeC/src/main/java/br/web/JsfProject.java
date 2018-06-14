@@ -20,7 +20,7 @@ import javax.faces.event.ActionEvent;
 public class JsfProject {
 
     /**
-     * Creates a new instance of JsfTeste
+     * Creates a new instance of JsfProject
      */
     public JsfProject() {
     }
@@ -54,11 +54,11 @@ public class JsfProject {
     }
 
     public String persist() {
-        br.data.entity.Project tes;
-        tes = new br.data.entity.Project();
-        tes.setCodigo(codigo);
-        tes.setNome(nome);
-        Exception insert = new br.data.crud.CrudProject().persist(tes);
+        br.data.entity.Project project;
+        project = new br.data.entity.Project();
+        project.setCodigo(codigo);
+        project.setNome(nome);
+        Exception insert = new br.data.crud.CrudProject().persist(project);
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
@@ -107,10 +107,10 @@ public class JsfProject {
     }
 
     public String merge() {
-        br.data.entity.Teste tes;
-        tes = new br.data.crud.CrudTeste().find(this.codigo);
-        tes.setNome(nome);
-        Exception e = new br.data.crud.CrudTeste().merge(tes);
+        br.data.entity.Project project;
+        project = new br.data.crud.CrudProject().find(this.codigo);
+        project.setNome(nome);
+        Exception e = new br.data.crud.CrudProject().merge(project);
         if (e == null) {
             this.setCodigo(0);
             this.setNome("");
@@ -126,6 +126,6 @@ public class JsfProject {
     }
     
     public void buttonAction(ActionEvent actionEvent) {
-        System.out.println("ola mundo ======================");
+        System.out.println("Buttun Action do Project");
     }
 }

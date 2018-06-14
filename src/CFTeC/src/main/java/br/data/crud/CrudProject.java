@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author alexandrelerario
+ * @author Diego Vilella Rodrigues
  */
 public class CrudProject extends AbstractCrud<br.data.entity.Project> {
 
