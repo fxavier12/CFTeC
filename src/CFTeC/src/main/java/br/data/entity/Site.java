@@ -39,10 +39,10 @@ public class Site implements Serializable {
     @Size(max = 255)
     @Column(name = "nome")
     private String nome;
-    @Column(name = "pocisaoGeo")
-    private String pocisaoGeo;
+    @Column(name = "posicaoGeo")
+    private String posicaoGeo;    
     @Column(name = "observacao")
-    private String observacao;
+    private String observacao; 
     @Column(name = "codigoProject")
     private Integer codigoProject;
 
@@ -51,10 +51,26 @@ public class Site implements Serializable {
     }
     
     
+    
     public Site(Integer codigo) {
         this.codigo = codigo;
     }
+    
+    public String getPosicaoGeo() {
+        return posicaoGeo;
+    }
+    
+    
+    public void setPosicaoGeo(String posicaoGeo) {
+        this.posicaoGeo = posicaoGeo;
+    }
 
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+    public String getObservacao() {
+        return observacao;
+    }
     public Integer getCodigo() {
         return codigo;
     }
