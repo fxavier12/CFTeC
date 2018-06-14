@@ -244,8 +244,9 @@ CREATE TABLE public.collaborator
 	nome VARCHAR(255) NOT NULL,
 	data_nascimento DATE NOT NULL,
 	CONSTRAINT collaborator_pk PRIMARY KEY (codigo),
-    email_principal varchar(255),
-    collaborator_ativo boolean
+    email varchar(255),
+    collaborator_ativo boolean,
+    codativacao varchar(8)
 	
 );
 CREATE TABLE public.content
