@@ -13,29 +13,18 @@ import javax.faces.event.ActionEvent;
 
 /**
  *
- * @author Diego Vilella Rodrigues
+ * @author utfpr
  */
 @ManagedBean
 @RequestScoped
-public class JsfProject {
-
-    /**
-     * Creates a new instance of JsfTeste
-     */
-    public JsfProject() {
+public class JsfPurpose {
+    
+    public JsfPurpose() {
     }
-
+    
     private int codigo;
     private String nome;
     private String descricao;
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public int getCodigo() {
         return codigo;
@@ -53,16 +42,26 @@ public class JsfProject {
         this.nome = nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public String persist() {
-        br.data.entity.Project tes;
-        tes = new br.data.entity.Project();
-        tes.setCodigo(codigo);
-        tes.setNome(nome);
-        Exception insert = new br.data.crud.CrudProject().persist(tes);
+        br.data.entity.Purpose pur;
+        pur = new br.data.entity.Purpose();
+        pur.setCodigo(codigo);
+        pur.setNome(nome);
+        pur.setDescricao(descricao);
+        Exception insert = new br.data.crud.CrudPurpose().persist(pur);
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
+            this.setDescricao("");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Purpose", "adicionado!");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
         } else {
@@ -75,22 +74,22 @@ public class JsfProject {
         return "/operacoes/index.xhtml";
     }
 
-    public java.util.List<br.data.entity.Project> getAll() {
-        return new br.data.crud.CrudProject().getAll();
+    public java.util.List<br.data.entity.Purpose> getAll() {
+        return new br.data.crud.CrudPurpose().getAll();
     }
 
-    public java.util.List<br.data.entity.Project> getSelect() {
+    public java.util.List<br.data.entity.Purpose> getSelect() {
         if (this.nome != null && !this.nome.equals("")) {
-            return new br.data.crud.CrudProject().SelectByNome(nome);
+            return new br.data.crud.CrudPurpose().SelectByNome(nome);
         } else {
             return null;
         }
     }
 
-    public void remove(br.data.entity.Project project) {
-        Exception e =new br.data.crud.CrudProject().remove(project);
+    public void remove(br.data.entity.Purpose purpose) {
+        Exception e =new br.data.crud.CrudPurpose().remove(purpose);
          if (e == null) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Purpose", "excluído!");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
         } else {
@@ -100,21 +99,24 @@ public class JsfProject {
         }
     }
 
-    public String update(br.data.entity.Project project) {
-        this.codigo = project.getCodigo();
-        this.nome = project.getNome();
+    public String update(br.data.entity.Purpose purpose) {
+        this.codigo = purpose.getCodigo();
+        this.nome = purpose.getNome();
+        this.descricao = purpose.getDescricao();
         return "merge.xhtml";
     }
 
     public String merge() {
-        br.data.entity.Teste tes;
-        tes = new br.data.crud.CrudTeste().find(this.codigo);
-        tes.setNome(nome);
-        Exception e = new br.data.crud.CrudTeste().merge(tes);
+        br.data.entity.Purpose pur;
+        pur = new br.data.crud.CrudPurpose().find(this.codigo);
+        pur.setNome(nome);
+        pur.setDescricao(descricao);
+        Exception e = new br.data.crud.CrudPurpose().merge(pur);
         if (e == null) {
             this.setCodigo(0);
             this.setNome("");
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro alterado com sucesso");
+            this.setDescricao("");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Purpose", "modificado!");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
         } else {
@@ -128,4 +130,5 @@ public class JsfProject {
     public void buttonAction(ActionEvent actionEvent) {
         System.out.println("ola mundo ======================");
     }
+    
 }

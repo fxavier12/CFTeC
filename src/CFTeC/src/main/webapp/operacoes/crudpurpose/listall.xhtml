@@ -13,18 +13,21 @@
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-                <h:dataTable value="#{jsfTeste.all}" var="tes">
+                <h:dataTable value="#{jsfPurpose.all}" var="pur">
                     <h:column>
-                        <h:outputText value="#{tes.codigo}" />
+                        <h:outputText value="#{pur.codigo}" />
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{tes.nome}" />
+                        <h:outputText value="#{pur.nome}" />
                     </h:column>
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(tes)}" onclick="return confirm('Deseja realmente excluir o Purpose?');" ajax="false"/> 
+                        <h:outputText value="#{pur.descricao}" />
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}"/> 
+                        <p:commandButton value="remover" action="#{jsfPurpose.remove(pur)}" onclick="return confirm('Deseja realmente excluir o Purpose?');" ajax="false"/> 
+                    </h:column>
+                    <h:column>
+                        <p:commandButton value="editar" action="#{jsfPurpose.update(pur)}"/> 
                     </h:column>
                 </h:dataTable>
             </h:form>
