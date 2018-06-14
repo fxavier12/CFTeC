@@ -7,7 +7,7 @@
 
     <ui:composition template="../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Cadastrar Purpose</h1>
+            <h1>Cadastrar Teste - remover apos primeiro crud real desenvolvido</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
@@ -16,18 +16,14 @@
 
 
                 Codigo:
-                <p:inputText value="#{jsfPurpose.codigo}"  />
+                <p:inputText value="#{jsfTeste.codigo}"  />
 
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfPurpose.nome}" />
-                
-                <br></br>
-                Descrição:
-                <p:inputText value="#{jsfPurpose.descricao}" />
+                <p:inputText value="#{jsfTeste.nome}" />
 
                 <br></br>
-                <p:commandButton value="Salvar Purpose" action="#{jsfPurpose.persist()}"  ajax="false"/> 
+                <p:commandButton value="salvar novo registro" action="#{jsfTeste.persist()}"  ajax="false"/> 
 
             </h:form>
         </ui:define>
