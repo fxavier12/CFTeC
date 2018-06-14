@@ -13,15 +13,18 @@
                     <p:autoUpdate />
                 </p:messages>
                 Codigo:
-                <p:outputLabel value="#{jsfTeste.codigo}"  />
-                <h:inputHidden value="#{jsfTeste.codigo}"  />
+                <p:outputLabel value="#{jsfPurpose.codigo}"  />
+                <h:inputHidden value="#{jsfPurpose.codigo}"  />
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfTeste.nome}" />
+                <p:inputText value="#{jsfPurpose.nome}" />
+                <br></br>
+                Descrição:
+                <p:inputText value="#{jsfPurpose.descricao}" />
 
                 <br></br>
 
-                <p:commandButton value ="Salvar modificações no Purpose" action="#{jsfTeste.merge()}" ajax="false" /> 
+                <p:commandButton value ="Salvar modificações no Purpose" action="#{jsfPurpose.merge()}" ajax="false" /> 
 
             </h:form>
         </ui:define>

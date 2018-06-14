@@ -33,6 +33,17 @@ public class CrudPurpose extends AbstractCrud<br.data.entity.Purpose> {
         }
         return null;
     }
+    
+    public List<br.data.entity.Purpose> SelectByDescricao(String descricao) {
+        List<br.data.entity.Purpose> lista;
+        try {
+            lista= getEntityManager().createNamedQuery("Purpose.findByDescricao").setParameter("descricao", "%" + descricao.toUpperCase() + "%").getResultList();
+            return lista;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 
     @Override
     protected EntityManager getEntityManager() {

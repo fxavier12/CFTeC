@@ -28,7 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Purpose.findAll", query = "SELECT p FROM Purpose p")
     , @NamedQuery(name = "Purpose.findByCodigo", query = "SELECT p FROM Purpose p WHERE p.codigo = :codigo")
-    , @NamedQuery(name = "Purpose.findByNome", query = "SELECT p FROM Purpose p WHERE upper(p.nome) like :nome")})
+    , @NamedQuery(name = "Purpose.findByNome", query = "SELECT p FROM Purpose p WHERE upper(p.nome) like :nome")
+    , @NamedQuery(name = "Purpose.findByDescricao", query = "SELECT p FROM Purpose p WHERE upper(p.descricao) like :descricao")})
 
 public class Purpose implements Serializable{
     
