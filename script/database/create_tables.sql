@@ -180,7 +180,7 @@ CREATE TABLE public.purpose
 (
 codigo INTEGER NOT NULL,
 nome varchar(45), 
-descrição varchar(120),
+descricao varchar(120),
 CONSTRAINT purpose_pkey PRIMARY KEY (codigo)
 );
 
