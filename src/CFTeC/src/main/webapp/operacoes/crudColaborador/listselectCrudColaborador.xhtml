@@ -7,7 +7,7 @@
 
     <ui:composition template="./layout_CrudColaborador.xhtml">
         <ui:define name="content">
-            <h1>Consultar Colaboradores</h1>
+            <h1>Consultar Colaboradores por nome</h1>
             <h:form>
                 <p:inputText value="#{jsfCollaboratorView.nome}"  /> 
                 <p:commandButton value="buscar" ajax="false" />   
@@ -24,8 +24,11 @@
                         <h:outputText value="#{stes.nome}" />
                     </h:column> 
                     <h:column>
+                        <h:outputText value="#{stes.data_nascimento}" />
+                    </h:column> 
+                    <h:column>
                         <h:outputText value="#{stes.email}" />
-                    </h:column>  
+                    </h:column> 
                     <h:column>
                         <p:commandButton value="remover" action="#{jsfCollaborator.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
                     </h:column>

@@ -24,8 +24,11 @@
                 <p:inputText value="#{jsfCollaborator.email}" />
 
                 <br></br>
+                  data de nascimento:
+                  <p:inputText value="#{jsfCollaborator.data_nascimento}" />
 
-                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfTeste.merge()}" ajax="false" /> 
+                <br></br>
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfCollaborator.merge()}" ajax="false" /> 
 
             </h:form>
         </ui:define>

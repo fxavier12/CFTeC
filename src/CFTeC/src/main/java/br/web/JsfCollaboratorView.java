@@ -18,10 +18,28 @@ public class JsfCollaboratorView {
 
     public JsfCollaboratorView() {
     }
-     private int codigo;
+    private int codigo;
     private String nome;
     private String email;
     private String data_nascimento;
+    private String codativacao;
+    private boolean collaborator_ativo;
+
+    public String getCodativacao() {
+        return codativacao;
+    }
+
+    public void setCodativacao(String codativacao) {
+        this.codativacao = codativacao;
+    }
+
+    public boolean isCollaborator_ativo() {
+        return collaborator_ativo;
+    }
+
+    public void setCollaborator_ativo(boolean collaborator_ativo) {
+        this.collaborator_ativo = collaborator_ativo;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -55,9 +73,6 @@ public class JsfCollaboratorView {
         this.email = email;
     }
 
-   
-    
-    
     public java.util.List<br.data.entity.Collaborator> getSelect() {
         if (this.nome != null && !this.nome.equals("")) {
             return new br.data.crud.CrudCollaborator().SelectByNome(nome);
@@ -65,4 +80,14 @@ public class JsfCollaboratorView {
             return null;
         }
     }
+   
+
+    public br.data.entity.Collaborator getCollaborator() {
+        if (this.codativacao != null && !this.codativacao.equals("")) {
+            return new br.data.crud.CrudCollaborator().SelectByCodAtivacao(codativacao);
+        } else {
+            return null;
+        }
+    }
+
 }

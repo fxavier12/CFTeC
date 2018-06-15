@@ -7,13 +7,7 @@ package br.web;
 
 import br.data.Validacao.JavaMailApp;
 import br.data.Validacao.RandomString;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -46,8 +40,7 @@ public class JsfCollaborator {
     public void setCollaborator_ativo(boolean collaborator_ativo) {
         this.collaborator_ativo = collaborator_ativo;
     }
-    
-    
+
     public String getData_nascimento() {
         return data_nascimento;
     }
@@ -63,7 +56,7 @@ public class JsfCollaborator {
     public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
-    
+
     public int getCodigo() {
         return codigo;
     }
@@ -101,7 +94,7 @@ public class JsfCollaborator {
         colab.setCollaborator_ativo(false);
         if (insert == null) {
             this.setCodigo(0);
-            this.setCollaborator_ativo(false);
+            this.setCollaborator_ativo(true);
             this.setNome("");
             this.setEmail("");
             this.setData_nascimento("");
@@ -118,7 +111,7 @@ public class JsfCollaborator {
             return null;
         }
 
-        return "/operacoes/index.xhtml";
+        return "/index.xhtml";
     }
 
     public java.util.List<br.data.entity.Collaborator> getAll() {
@@ -151,9 +144,12 @@ public class JsfCollaborator {
         this.nome = colab.getNome();
         this.email = colab.getEmail();
         this.data_nascimento = colab.getData_nascimento();
-        return "merge.xhtml";
+        this.collaborator_ativo = true;
+        return "mergeCrudColaborador.xhtml";
     }
+     
     
+
     public String merge() {
         br.data.entity.Collaborator colab;
         colab = new br.data.crud.CrudCollaborator().find(this.codigo);
@@ -165,7 +161,7 @@ public class JsfCollaborator {
             this.setCodigo(0);
             this.setNome("");
             this.setEmail("");
-            this.setData_nascimento(data_nascimento);
+            this.setData_nascimento("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Collaborator", "modificado!");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
@@ -174,10 +170,7 @@ public class JsfCollaborator {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
-        return "/operacoes/index.xhtml";
+        return "/index.xhtml";
     }
 
-    public void buttonAction(ActionEvent actionEvent) {
-        System.out.println("ola mundo ======================");
-    }
 }
