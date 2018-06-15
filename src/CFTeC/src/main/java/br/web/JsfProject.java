@@ -63,6 +63,7 @@ public class JsfProject {
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
+            this.setDescricao("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
