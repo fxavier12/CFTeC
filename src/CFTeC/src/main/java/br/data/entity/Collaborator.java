@@ -52,7 +52,7 @@ public class Collaborator implements Serializable {
     @Column(name = "email")
     private String email;
     @Column(name = "data_nascimento")
-    @Size(max = 45)
+    @Size(max = 15)
     private String data_nascimento;
     @Column(name = "codativacao")
     @Size(max = 8)
