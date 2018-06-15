@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "project")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Project.findAll", query = "SELECT t FROM project t")
-    , @NamedQuery(name = "Project.findByCodigo", query = "SELECT t FROM project t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Project.findByNome", query = "SELECT t FROM project t WHERE upper(t.nome) like :nome")})
+    @NamedQuery(name = "Project.findAll", query = "SELECT t FROM Project t")
+    , @NamedQuery(name = "Project.findByCodigo", query = "SELECT t FROM Project t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "Project.findByNome", query = "SELECT t FROM Project t WHERE upper(t.nome) like :nome")})
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
