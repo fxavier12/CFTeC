@@ -94,5 +94,9 @@ public class Project implements Serializable {
     public String toString() {
         return "br.data.entity.Project[ codigo=" + codigo + " ]";
     }
+
+    public void setDescricao(String descricao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
