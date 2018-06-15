@@ -125,7 +125,7 @@ public class JsfSite {
         this.codigo = site.getCodigo();
         this.codigoProject = site.getCodigoProject();
         this.nome = site.getNome();
-        this.posicaoGeo = site.getPocisaoGeo();
+        this.posicaoGeo = site.getPosicaoGeo();
         this.observacao = site.getObservacao();
         return "merge.xhtml";
     }
