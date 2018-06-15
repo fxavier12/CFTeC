@@ -242,7 +242,7 @@ CREATE TABLE public.collaborator
 (
 	codigo INTEGER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
-	data_nascimento DATE NOT NULL,
+	data_nascimento varchar(15) NOT NULL,
 	CONSTRAINT collaborator_pk PRIMARY KEY (codigo),
     email varchar(255),
     collaborator_ativo boolean,
