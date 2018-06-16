@@ -17,12 +17,12 @@ import javax.faces.event.ActionEvent;
  */
 @ManagedBean
 @RequestScoped
-public class JsfTeste {
+public class JsfArtifact {
 
     /**
      * Creates a new instance of JsfTeste
      */
-    public JsfTeste() {
+    public JsfArtifact() {
     }
 
     private int codigo;
@@ -91,31 +91,6 @@ public class JsfTeste {
         }
     }
 
-    public String update(br.data.entity.Teste teste) {
-        this.codigo = teste.getCodigo();
-        this.nome = teste.getNome();
-        return "merge.xhtml";
-    }
-
-    public String merge() {
-        br.data.entity.Teste tes;
-        tes = new br.data.crud.CrudTeste().find(this.codigo);
-        tes.setNome(nome);
-        Exception e = new br.data.crud.CrudTeste().merge(tes);
-        if (e == null) {
-            this.setCodigo(0);
-            this.setNome("");
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro alterado com sucesso");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-
-        } else {
-            String msg = e.getMessage();
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
-        return "/operacoes/index.xhtml";
-    }
-    
     public void buttonAction(ActionEvent actionEvent) {
         System.out.println("ola mundo ======================");
     }

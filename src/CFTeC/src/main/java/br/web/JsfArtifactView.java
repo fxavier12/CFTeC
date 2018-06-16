@@ -16,12 +16,12 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class JsfTesteView {
+public class JsfArtifactView {
 
     /**
      * Creates a new instance of JsfTeste
      */
-    public JsfTesteView() {
+    public JsfArtifactView() {
     }
 
     private int codigo;
