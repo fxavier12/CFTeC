@@ -22,13 +22,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author utfpr
  */
 @Entity
-@Table(name = "teste")
+@Table(name = "artifact")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Teste.findAll", query = "SELECT t FROM Teste t")
-    , @NamedQuery(name = "Teste.findByCodigo", query = "SELECT t FROM Teste t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Teste.findByNome", query = "SELECT t FROM Teste t WHERE upper(t.nome) like :nome")})
-public class Teste implements Serializable {
+    @NamedQuery(name = "Artifact.findAll", query = "SELECT a FROM Artifact a")
+    , @NamedQuery(name = "Artifact.findByCodigo", query = "SELECT a FROM Artifact a WHERE a.codigo = :codigo")
+    , @NamedQuery(name = "Artifact.findByNome", query = "SELECT a FROM Artifact a WHERE upper(a.nome) like :nome")})
+public class Artifact implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -36,14 +36,57 @@ public class Teste implements Serializable {
     @NotNull
     @Column(name = "codigo")
     private Integer codigo;
-    @Size(max = 255)
+    @Size(max = 45)
     @Column(name = "nome")
     private String nome;
+    @Size(max = 120)
+    @Column(name = "descricao")
+    private String descricao;
+    @Size(max = 10)
+    @Column(name = "versao")
+    private String versao;
+    @Column(name = "arquivo")
+    private Byte[] arquivo;
+    @NotNull
+    @Column(name = "message_codigo")
+    private Integer message_codigo;
 
-    public Teste() {
+    public String getDescricao() {
+        return descricao;
     }
 
-    public Teste(Integer codigo) {
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getVersao() {
+        return versao;
+    }
+
+    public void setVersao(String versao) {
+        this.versao = versao;
+    }
+
+    public Byte[] getArquivo() {
+        return arquivo;
+    }
+
+    public void setArquivo(Byte[] arquivo) {
+        this.arquivo = arquivo;
+    }
+
+    public Integer getMessage_codigo() {
+        return message_codigo;
+    }
+
+    public void setMessage_codigo(Integer message_codigo) {
+        this.message_codigo = message_codigo;
+    }
+
+    public Artifact() {
+    }
+
+    public Artifact(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -73,10 +116,10 @@ public class Teste implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Teste)) {
+        if (!(object instanceof Artifact)) {
             return false;
         }
-        Teste other = (Teste) object;
+        Artifact other = (Artifact) object;
         if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
@@ -85,7 +128,7 @@ public class Teste implements Serializable {
 
     @Override
     public String toString() {
-        return "br.data.entity.Teste[ codigo=" + codigo + " ]";
+        return "br.data.entity.Artifact[ codigo=" + codigo + " ]";
     }
     
 }
