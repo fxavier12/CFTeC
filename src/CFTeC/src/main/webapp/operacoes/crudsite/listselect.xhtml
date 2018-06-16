@@ -9,14 +9,14 @@
         <ui:define name="content">
             <h1>Consultar testes</h1>
             <h:form>
-                <p:inputText value="#{jsfTesteView.nome}"  /> 
+                <p:inputText value="#{jsfSiteView.nome}"  /> 
                 <p:commandButton value="buscar" ajax="false" />   
               
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
                 
-                <h:dataTable value="#{jsfTesteView.select}" var="stes" >
+                <h:dataTable value="#{jsfSiteView.select}" var="stes" >
                     <h:column>
                         <h:outputText value="#{stes.codigo}" />
                     </h:column>
@@ -24,10 +24,10 @@
                         <h:outputText value="#{stes.nome}" />
                     </h:column>                    
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
+                        <p:commandButton value="remover" action="#{jsfSite.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(stes)}" ajax="false" /> 
+                        <p:commandButton value="editar" action="#{jsfSite.update(stes)}" ajax="false" /> 
                     </h:column>
                   
                 </h:dataTable>

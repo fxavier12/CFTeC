@@ -58,10 +58,12 @@ public class JsfProject {
         project = new br.data.entity.Project();
         project.setCodigo(codigo);
         project.setNome(nome);
+        project.setDescricao(descricao);
         Exception insert = new br.data.crud.CrudProject().persist(project);
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
+            this.setDescricao("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 

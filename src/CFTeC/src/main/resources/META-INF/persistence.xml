@@ -3,6 +3,8 @@
   <persistence-unit name="utfpr.cp_CFTeCdb" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.data.entity.Teste</class>
+    <class>br.data.entity.Purpose</class>
+    <class>br.data.entity.Collaborator</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/cfdb"/>
