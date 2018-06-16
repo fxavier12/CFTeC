@@ -36,13 +36,13 @@ public class Evaluation implements Serializable{
     @NotNull
     @Column(name = "codigo")
     private Integer codigo;
-    @JoinColumn(name = "codigo_collaborator", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
-    private Collaborator codigo_collaborator;
-    @JoinColumn(name = "codigo_message", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
-    private Message codigo_message;
-    private Date data;
+//    @JoinColumn(name = "codigo_collaborator", referencedColumnName = "codigo")
+//    @ManyToOne(optional = false)
+//    private Collaborator codigo_collaborator;
+//    @JoinColumn(name = "codigo_message", referencedColumnName = "codigo")
+//    @ManyToOne(optional = false)
+//    private Message codigo_message;
+//    private Date data;
     private float value;
 
     // Getters and Setters
