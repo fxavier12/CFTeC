@@ -1,7 +1,7 @@
 -- script para inserir registros basicos no banco
 -- antes de cada conjunto de inserts o nome do responsavel deve ser informado
 
-
+/*
 --Responsavel: Alexandre L'Erario
 insert into teste values (1, 'Teste 1');
 insert into teste values (2, 'Teste dois');
@@ -46,3 +46,7 @@ insert into postalcode values (2, '93215-111', 2, 4);
 insert into postalcode values (3, '15987-258', 1, 1);
 insert into postalcode values (4, '02784-333', 5, 5);
 insert into postalcode values (5, '87410-045', 3, 2);
+*/
+
+--Responsavel: Francisco Xavier
+insert into message values(1);
