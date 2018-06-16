@@ -348,4 +348,13 @@ CREATE TABLE public.configuracao
     FOREIGN KEY (codigo_SEtool) REFERENCES public.type (codigo)
 );
 
-
+CREATE TABLE public.evaluation(
+	codigo INTEGER NOT NULL,
+	codigo_collaborator INTEGER NOT NULL,
+	codigo_message INTEGER NOT NULL,
+	data DATE,
+	value real,
+	CONSTRAINT evaluation_pk PRIMARY KEY (codigo),
+	FOREIGN KEY (codigo_collaborator) REFERENCES public.collaborator (codigo),
+	FOREIGN KEY (codigo_message) REFERENCES public.message (codigo)
+);
