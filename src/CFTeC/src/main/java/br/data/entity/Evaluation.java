@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ysazaka
+ * @author yoshi
  */
 
 @Entity
@@ -41,8 +41,8 @@ public class Evaluation implements Serializable{
     private Collaborator codigo_collaborator;
     @JoinColumn(name = "codigo_message", referencedColumnName = "codigo")
     private Message codigo_message;
-    private Date data;
-    private float value;
+    private Date created_at;
+    private float valor;
 
     // Getters and Setters
 
@@ -70,20 +70,20 @@ public class Evaluation implements Serializable{
         this.codigo_message = codigo_message;
     }
 
-    public Date getData() {
-        return data;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
-    public float getValue() {
-        return value;
+    public float getValor() {
+        return valor;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setValor(float valor) {
+        this.valor = valor;
     }
     
     
