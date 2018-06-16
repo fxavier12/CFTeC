@@ -8,25 +8,19 @@
     <ui:composition template="../layout_operacoes.xhtml">
 
         <ui:define name="content">
-            <h1>Listar todos os projetos</h1>
+            <h1>Gráficos de avaliações</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-                <h:dataTable value="#{jsfProject.all}" var="tes">
-                    <h:column>
-                        <h:outputText value="#{tes.codigo}" />
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{tes.nome}" />
-                    </h:column>
-                    <h:column>
-                        <p:commandButton value="remover" action="#{jsfProject.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
-                    </h:column>
-                    <h:column>
-                        <p:commandButton value="editar" action="#{jsfProject.update(tes)}"/> 
-                    </h:column>
-                </h:dataTable>
+                
+                <p:dialog header="Gráficos das Avaliações" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="500">
+                    <p:outputPanel id="graphics" style="text-align:center;">
+                        <p:panelGrid id="panelChartsDialog" layout="grid">
+                            <p:chart type="pie" model="#{jsfEvaluationView.pieChartEvaluation} style=width:400px;height:300px;" />
+                        </p:panelGrid>
+                    </p:outputPanel>
+                </p:dialog>
             </h:form>
 
         </ui:define>
