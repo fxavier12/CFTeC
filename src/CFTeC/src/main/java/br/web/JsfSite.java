@@ -83,6 +83,10 @@ public class JsfSite {
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
+            site.setCodigoProject(0);
+            site.setNome("");
+            site.setPosicaoGeo("");
+            site.setObservacao("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
