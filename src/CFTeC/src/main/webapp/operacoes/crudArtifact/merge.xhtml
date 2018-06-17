@@ -7,21 +7,38 @@
 
     <ui:composition template="../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Modificar teste</h1>
+            <h1>Modificar Artifact</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
                 Codigo:
-                <p:outputLabel value="#{jsfTeste.codigo}"  />
-                <h:inputHidden value="#{jsfTeste.codigo}"  />
+                <p:outputLabel value="#{jsfArtifact.codigo}"  />
+                <h:inputHidden value="#{jsfArtifact.codigo}"  />
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfTeste.nome}" />
-
+                <p:inputText value="#{jsfArtifact.nome}" />
                 <br></br>
+                
+                Descricao:
+                <p:inputText value="#{jsfArtifact.descricao}" />
+                <br></br>
+                Versao:
+                <p:inputText value="#{jsfArtifact.versao}" />
+                <br></br>
+                Menssage:
+                <p:outputLabel value="#{jsfArtifact.message}"  />
+                <h:inputHidden value="#{jsfArtifact.message}"  />
+                <br></br>
+                Arquivo:
+                <h:inputHidden value="#{jsfArtifact.arquivo_name}"  />
+                <p:outputLabel value="#{jsfArtifact.arquivo_name}"  />
 
-                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfTeste.merge()}" ajax="false" /> 
+                <h:inputHidden value="#{jsfArtifact.arquivo_type}"  />
+                <br></br>
+                
+
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfArtifact.merge()}" ajax="false" /> 
 
             </h:form>
         </ui:define>

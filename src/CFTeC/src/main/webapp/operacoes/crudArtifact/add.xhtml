@@ -7,23 +7,27 @@
 
     <ui:composition template="../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Cadastrar Teste - remover apos primeiro crud real desenvolvido</h1>
-            <h:form>
+            <h1>Cadastrar Artifact</h1>
+            <h:form enctype="multipart/form-data">
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-
-
-
-                Codigo:
-                <p:inputText value="#{jsfTeste.codigo}"  />
-
                 <br></br>
-                Nome:
-                <p:inputText value="#{jsfTeste.nome}" />
-
+                Nome:     
+                <p:inputText value="#{jsfArtifact.nome}" />
                 <br></br>
-                <p:commandButton value="salvar novo registro" action="#{jsfTeste.persist()}"  ajax="false"/> 
+                Descricao:
+                <p:inputText value="#{jsfArtifact.descricao}" />
+                <br></br>
+                Versao:   
+                <p:inputText value="#{jsfArtifact.versao}" />
+                <br></br>
+                Arquivo:  
+                <p:outputLabel value="#{jsfArtifact.arquivo_name}"  />
+                <h:inputHidden value="#{jsfArtifact.arquivo_name}"  />
+	        <p:fileUpload value="#{jsfArtifact.file}"  mode="simple"></p:fileUpload>
+	        <p:separator/>
+		<p:commandButton value="salvar novo registro" action="#{jsfArtifact.persist()}"  ajax="false"/> 
 
             </h:form>
         </ui:define>

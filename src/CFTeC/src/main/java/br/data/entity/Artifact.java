@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -32,6 +34,7 @@ public class Artifact implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @NotNull
     @Column(name = "codigo")
@@ -46,7 +49,11 @@ public class Artifact implements Serializable {
     @Column(name = "versao")
     private String versao;
     @Column(name = "arquivo")
-    private Byte[] arquivo;
+    private byte[] arquivo;
+    @Column(name = "arquivo_type")
+    private String arquivo_type;
+    @Column(name = "arquivo_name")
+    private String arquivo_name;
     @NotNull
     @Column(name = "message_codigo")
     private Integer message_codigo;
@@ -67,11 +74,27 @@ public class Artifact implements Serializable {
         this.versao = versao;
     }
 
-    public Byte[] getArquivo() {
+    public String getArquivo_type() {
+        return arquivo_type;
+    }
+
+    public void setArquivo_type(String arquivo_type) {
+        this.arquivo_type = arquivo_type;
+    }
+
+    public String getArquivo_name() {
+        return arquivo_name;
+    }
+
+    public void setArquivo_name(String arquivo_name) {
+        this.arquivo_name = arquivo_name;
+    }
+
+    public byte[] getArquivo() {
         return arquivo;
     }
 
-    public void setArquivo(Byte[] arquivo) {
+    public void setArquivo(byte[] arquivo) {
         this.arquivo = arquivo;
     }
 

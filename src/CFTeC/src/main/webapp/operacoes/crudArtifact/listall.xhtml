@@ -8,23 +8,32 @@
     <ui:composition template="../layout_operacoes.xhtml">
 
         <ui:define name="content">
-            <h1>Listar todos os testes</h1>
+            <h1>Listar todos os artifacts</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-                <h:dataTable value="#{jsfTeste.all}" var="tes">
+                <h:dataTable value="#{jsfArtifact.all}" var="art">
                     <h:column>
-                        <h:outputText value="#{tes.codigo}" />
+                        <h:outputText value="#{art.codigo}" />
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{tes.nome}" />
+                        <h:outputText value="#{art.nome}" />
                     </h:column>
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
+                        <h:outputText value="#{art.descricao}" />
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}"/> 
+                        <h:outputText value="#{art.versao}" />
+                    </h:column>
+                     <h:column>
+                        <p:commandButton value="Download" action="#{jsfDownloadArtifact.download(art)}" onclick="return confirm('Baixar Arquivo?');" ajax="false"/> 
+                    </h:column>
+                    <h:column>
+                        <p:commandButton value="remover" action="#{jsfArtifact.remove(art)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
+                    </h:column>
+                    <h:column>
+                        <p:commandButton value="editar" action="#{jsfArtifact.update(art)}"/> 
                     </h:column>
                 </h:dataTable>
             </h:form>

@@ -7,27 +7,33 @@
 
     <ui:composition template="../layout_operacoes.xhtml">
         <ui:define name="content">
-            <h1>Consultar testes</h1>
+            <h1>Consultar Artifact</h1>
             <h:form>
-                <p:inputText value="#{jsfTesteView.nome}"  /> 
+                <p:inputText value="#{jsfArtifactView.nome}"  /> 
                 <p:commandButton value="buscar" ajax="false" />   
               
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
                 
-                <h:dataTable value="#{jsfTesteView.select}" var="stes" >
+                <h:dataTable value="#{jsfArtifactView.select}" var="art" >
                     <h:column>
-                        <h:outputText value="#{stes.codigo}" />
+                        <h:outputText value="#{art.codigo}" />
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{stes.nome}" />
-                    </h:column>                    
+                        <h:outputText value="#{art.nome}" />
+                    </h:column>   
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
+                        <h:outputText value="#{art.descricao}" />
+                    </h:column> 
+                    <h:column>
+                        <h:outputText value="#{art.versao}" />
+                    </h:column> 
+                    <h:column>
+                        <p:commandButton value="remover" action="#{jsfArtifact.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(stes)}" ajax="false" /> 
+                        <p:commandButton value="editar" action="#{jsfArtifact.update(stes)}" ajax="false" /> 
                     </h:column>
                   
                 </h:dataTable>

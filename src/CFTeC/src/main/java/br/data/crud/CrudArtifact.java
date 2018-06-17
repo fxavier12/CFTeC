@@ -13,20 +13,20 @@ import javax.persistence.Persistence;
  *
  * @author alexandrelerario
  */
-public class CrudArtifact extends AbstractCrud<br.data.entity.Teste> {
+public class CrudArtifact extends AbstractCrud<br.data.entity.Artifact> {
 
     private EntityManager em;
 
     private static final String PU = EMNames.EMN1;
 
     public CrudArtifact() {
-        super(br.data.entity.Teste.class);
+        super(br.data.entity.Artifact.class);
     }
 
-    public List<br.data.entity.Teste> SelectByNome(String nome) {
-        List<br.data.entity.Teste> lista;
+    public List<br.data.entity.Artifact> SelectByNome(String nome) {
+        List<br.data.entity.Artifact> lista;
         try {
-            lista= getEntityManager().createNamedQuery("Teste.findByNome").setParameter("nome", "%" + nome.toUpperCase() + "%").getResultList();
+            lista= getEntityManager().createNamedQuery("Artifact.findByNome").setParameter("nome", "%" + nome.toUpperCase() + "%").getResultList();
             return lista;
         } catch (Exception e) {
             System.out.println(e.getMessage());
