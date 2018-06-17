@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "project")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Project.findAll", query = "SELECT t FROM project t")
-    , @NamedQuery(name = "Project.findByCodigo", query = "SELECT t FROM project t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Project.findByNome", query = "SELECT t FROM project t WHERE upper(t.nome) like :nome")})
+    @NamedQuery(name = "Project.findAll", query = "SELECT t FROM Project t")
+    , @NamedQuery(name = "Project.findByCodigo", query = "SELECT t FROM Project t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "Project.findByNome", query = "SELECT t FROM Project t WHERE upper(t.nome) like :nome")})
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,12 +43,12 @@ public class Project implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    public String getDescricao() {
-        return descricao;
-    }
+    
 
     public Project() {
     }
+    
+    
 
     public Project(Integer codigo) {
         this.codigo = codigo;
@@ -65,7 +65,15 @@ public class Project implements Serializable {
     public String getNome() {
         return nome;
     }
-
+    
+    public String getDescricao() {
+        return descricao;
+    }
+    
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -95,8 +103,5 @@ public class Project implements Serializable {
         return "br.data.entity.Project[ codigo=" + codigo + " ]";
     }
 
-    public void setDescricao(String descricao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

@@ -21,6 +21,9 @@
                         <h:outputText value="#{tes.nome}" />
                     </h:column>
                     <h:column>
+                        <h:outputText value="#{tes.descricao}" />
+                    </h:column>
+                    <h:column>
                         <p:commandButton value="remover" action="#{jsfProject.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
                     </h:column>
                     <h:column>

@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author utfpr
+ * @author Diego Vilella Rodrigues
  */
 @Entity
 @Table(name = "site")
