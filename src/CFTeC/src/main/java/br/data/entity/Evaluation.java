@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -41,6 +43,9 @@ public class Evaluation implements Serializable{
     private Collaborator codigo_collaborator;
     @JoinColumn(name = "codigo_message", referencedColumnName = "codigo")
     private Message codigo_message;
+    
+    @Column(name = "data")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date created_at;
     private float valor;
 
