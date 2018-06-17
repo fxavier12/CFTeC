@@ -6,7 +6,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>CFDTeC</title>
+        <title>CFTeC</title>
     </h:head>
     <h:body>
         <header>
@@ -79,8 +79,21 @@
                     <p:submenu label="Comunicação" icon="ui-icon-contact" rendered="true">
                         
                         <p:menuitem value="Gerar Comunicação" icon="ui-icon-newwin" url="/faces/operacoes/cruduc/add.xhtml" />
+                        
+                        <p:separator />
+
                         <p:menuitem value="Consultar Comunicação" icon="ui-icon-search" url="/faces/operacoes/cruduc/listselect.xhtml"/>
-         
+                        
+                        <p:separator />
+                        <p:submenu label="Artifact" icon="ui-icon-document" rendered="true">
+                            <p:menuitem value="Inserir"  icon="ui-icon-newwin"   url="/faces/operacoes/crudArtifact/add.xhtml"/>
+                            <p:menuitem value="Buscar" icon="ui-icon-search" url="/faces/operacoes/crudArtifact/listselect.xhtml"/>
+                            <p:menuitem value="Exibir" icon="ui-icon-document-b" url="/faces/operacoes/crudArtifact/listall.xhtml" />
+                        </p:submenu>
+                    </p:submenu>
+                    
+                    <p:submenu label="Avaliação" icon="ui-icon-contact" rendered="true">
+                        <p:menuitem value="Relatórios" icon="ui-icon-newwin" url="/faces/operacoes/crudevaluation/listall.xhtml" />
                     </p:submenu>
 
                     <f:facet name="options">
