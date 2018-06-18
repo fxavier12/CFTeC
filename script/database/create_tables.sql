@@ -270,17 +270,18 @@ CREATE TABLE public.content
     
 );
 
-CREATE TABLE public.arctifact  
+CREATE TABLE public.artifact  
 (
-	codigo integer not null,
-	nome varchar(45) not null,
-        descrição varchar(120),
-        versao varchar(10) not null default '0.1',
-        arquivo bytea not null,
-        message_codigo integer not null,
-	--faltou chave estrangeira para message.
-	constraint artifact_pkey primary key (codigo),
-	foreign key (message_codigo) references public.message (codigo)
+    codigo serial,
+    nome varchar(45) not null,
+    descricao varchar(120),
+    versao varchar(10) not null default '0.1',
+    arquivo bytea not null,
+    arquivo_type varchar(45) not null,
+    arquivo_name varchar(45) not null,
+    message_codigo integer not null,
+    constraint artifact_pkey primary key (codigo),
+    foreign key (message_codigo) references public.message (codigo)
 );
 
 

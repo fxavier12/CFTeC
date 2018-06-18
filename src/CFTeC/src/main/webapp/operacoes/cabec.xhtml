@@ -80,7 +80,12 @@
                         
                         <p:menuitem value="Gerar Comunicação" icon="ui-icon-newwin" url="/faces/operacoes/cruduc/add.xhtml" />
                         <p:menuitem value="Consultar Comunicação" icon="ui-icon-search" url="/faces/operacoes/cruduc/listselect.xhtml"/>
-         
+                        <p:separator />
+                        <p:submenu label="Artifact" icon="ui-icon-document" rendered="true">
+                            <p:menuitem value="Inserir"  icon="ui-icon-newwin"   url="/faces/operacoes/crudArtifact/add.xhtml"/>
+                            <p:menuitem value="Buscar" icon="ui-icon-search" url="/faces/operacoes/crudArtifact/listselect.xhtml"/>
+                            <p:menuitem value="Exibir" icon="ui-icon-document-b" url="/faces/operacoes/crudArtifact/listall.xhtml" />
+                        </p:submenu>
                     </p:submenu>
 
                     <f:facet name="options">
