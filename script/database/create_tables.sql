@@ -1,4 +1,4 @@
--- script para criacao de tabelas no banco de dados
+﻿-- script para criacao de tabelas no banco de dados
 --
 --antes de cada tabela o nome do responsavel deve ser informado
 
@@ -66,7 +66,7 @@ CREATE TABLE public.city
   );
 
 -- Responsavel Alex Jussiani
-CREATE TABLE public.artifact  
+CREATE TABLE public.arctifact  
 (
 	codigo integer not null,
 	nome varchar(45) not null,
@@ -242,7 +242,7 @@ CREATE TABLE public.collaborator
 (
 	codigo INTEGER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
-	data_nascimento varchar(15) NOT NULL,
+	data_nascimento DATE NOT NULL,
 	CONSTRAINT collaborator_pk PRIMARY KEY (codigo),
     email varchar(255),
     collaborator_ativo boolean,
@@ -261,16 +261,15 @@ CREATE TABLE public.content
     
 );
 
-CREATE TABLE public.artifact  
+CREATE TABLE public.arctifact  
 (
-	codigo serial,
+	codigo integer not null,
 	nome varchar(45) not null,
-    descricao varchar(120),
-    versao varchar(10) not null default '0.1',
-    arquivo bytea not null,
-	arquivo_type varchar(45) not null,
-	arquivo_name varchar(45) not null,
-    message_codigo integer not null,
+        descrição varchar(120),
+        versao varchar(10) not null default '0.1',
+        arquivo bytea not null,
+        message_codigo integer not null,
+	--faltou chave estrangeira para message.
 	constraint artifact_pkey primary key (codigo),
 	foreign key (message_codigo) references public.message (codigo)
 );
@@ -349,13 +348,4 @@ CREATE TABLE public.configuracao
     FOREIGN KEY (codigo_SEtool) REFERENCES public.type (codigo)
 );
 
-CREATE TABLE public.evaluation(
-	codigo INTEGER NOT NULL,
-	codigo_collaborator INTEGER NOT NULL,
-	codigo_message INTEGER NOT NULL,
-	data DATE,
-	value real,
-	CONSTRAINT evaluation_pk PRIMARY KEY (codigo),
-	FOREIGN KEY (codigo_collaborator) REFERENCES public.collaborator (codigo),
-	FOREIGN KEY (codigo_message) REFERENCES public.message (codigo)
-);
+

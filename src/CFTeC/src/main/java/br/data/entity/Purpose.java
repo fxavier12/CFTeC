@@ -73,7 +73,7 @@ public class Purpose implements Serializable{
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(String nome) {
         this.descricao = descricao;
     }
 
