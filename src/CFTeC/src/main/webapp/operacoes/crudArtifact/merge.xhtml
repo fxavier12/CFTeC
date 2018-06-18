@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="../layout_operacoes.xhtml">
+        <ui:define name="content">
+            <h1>Modificar Artifact</h1>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate />
+                </p:messages>
+                Codigo:
+                <p:outputLabel value="#{jsfArtifact.codigo}"  />
+                <h:inputHidden value="#{jsfArtifact.codigo}"  />
+                <br></br>
+                Nome:
+                <p:inputText value="#{jsfArtifact.nome}" />
+                <br></br>
+                
+                Descricao:
+                <p:inputText value="#{jsfArtifact.descricao}" />
+                <br></br>
+                Versao:
+                <p:inputText value="#{jsfArtifact.versao}" />
+                <br></br>
+                Menssage:
+                <p:outputLabel value="#{jsfArtifact.message}"  />
+                <h:inputHidden value="#{jsfArtifact.message}"  />
+                <br></br>
+                Arquivo:
+                <h:inputHidden value="#{jsfArtifact.arquivo_name}"  />
+                <p:outputLabel value="#{jsfArtifact.arquivo_name}"  />
+
+                <h:inputHidden value="#{jsfArtifact.arquivo_type}"  />
+                <br></br>
+                
+
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfArtifact.merge()}" ajax="false" /> 
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

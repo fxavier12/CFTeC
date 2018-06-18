@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="./layout_CrudColaborador.xhtml">
+        <ui:define name="content">
+            <h1>Colaborator</h1>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate />
+                </p:messages>
+                Codigo:
+                <p:outputLabel value="#{jsfCollaborator.codigo}"  />
+                <h:inputHidden value="#{jsfCollaborator.codigo}"  />
+                <br></br>
+                Nome:
+                <p:inputText value="#{jsfCollaborator.nome}" />
+
+                <br></br>
+                Email:
+                <p:inputText value="#{jsfCollaborator.email}" />
+
+                <br></br>
+                  data de nascimento:
+                  <p:inputText value="#{jsfCollaborator.data_nascimento}" />
+
+                <br></br>
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfCollaborator.merge()}" ajax="false" /> 
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
