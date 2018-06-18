@@ -24,7 +24,16 @@ CREATE TABLE public.message(
     codigo integer NOT NULL,
      CONSTRAINT mensage_pkey PRIMARY KEY (codigo)
 );
-
+// tive que criar pois não havia sido criada ainda
+CREATE TABLE site (
+    codigo int NOT NULL,
+    nome varchar(255),
+    posicaoGeo varchar(255),
+    observacao varchar(255),
+    codigoProject int,
+    PRIMARY KEY (siteID)
+	
+);
 
 
 -- Responsavel Danilo Missao Morita
